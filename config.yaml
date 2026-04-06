@@ -1,0 +1,39 @@
+# ── Optimizer loop ──────────────────────────────────────────────────────────────
+max_iterations: 5
+target_score: 0.85           # informational only — logged when train hits this, does NOT stop the loop
+plateau_delta: 0.01          # stop if HOLDOUT improvement across 2 consecutive iterations < this
+min_delta: 0.02              # minimum holdout improvement to accept a candidate
+
+# ── Candidate generation ────────────────────────────────────────────────────────
+n_candidates: 3
+candidate_temperatures: [0.3, 0.6, 0.9]
+top_k_failures: 5            # failure groups passed to rewriter per iteration
+
+# ── Call simulation ─────────────────────────────────────────────────────────────
+max_turns_per_call: 16       # max conversation turns before forced end
+scenario_seed: 42            # fixed seed for reproducible caller behaviour
+
+# ── Models (via OpenRouter free tier) ───────────────────────────────────────────
+judge_model: "gpt-4o"           # high-quality scoring, used ~N times per iteration
+rewriter_model: "gpt-4o"        # high-quality rewriting, used 3x per iteration
+agent_model: "gpt-4o-mini"      # agent sim — high frequency, cost-effective
+caller_model: "gpt-4o-mini"     # caller sim — high frequency, cost-effective
+summarizer_model: "gpt-4o-mini" # change summaries — cheap, infrequent
+judge_temperature: 0.0
+max_concurrent_llm_calls: 2  # semaphore limit to respect free-tier rate limits
+
+# ── Hybrid judge weights ─────────────────────────────────────────────────────────
+llm_judge_weight: 0.7
+structured_score_weight: 0.3
+
+# ── Budget ───────────────────────────────────────────────────────────────────────
+# Free OpenRouter models cost $0. Budget tracks Vapi assistant API calls only.
+budget_usd: 5.00
+vapi_cost_per_assistant_op: 0.0   # assistant create/delete is free
+
+# ── File paths ───────────────────────────────────────────────────────────────────
+scenario_file: "scenarios/dental.json"
+initial_prompt_file: "prompts/initial.txt"
+judge_system_prompt_file: "prompts/judge_system.txt"
+rewriter_system_prompt_file: "prompts/rewriter_system.txt"
+results_dir: "results"

@@ -1,0 +1,738 @@
+{
+  "calibration": {
+    "n": 40,
+    "accuracy": 0.75,
+    "precision": 0.889,
+    "recall": 0.667,
+    "f1": 0.762,
+    "tp": 16,
+    "tn": 14,
+    "fp": 2,
+    "fn": 8,
+    "gt_success_rate": 0.6,
+    "judge_pass_rate": 0.45,
+    "score_mean_when_gt_success": 0.665,
+    "score_mean_when_gt_fail": 0.637,
+    "score_separation": 0.028,
+    "dim_means_success": {
+      "goal_completion": 0.683,
+      "tone_and_empathy": 0.942,
+      "information_accuracy": 0.771,
+      "efficiency": 0.767,
+      "edge_case_handling": 0.662
+    },
+    "dim_means_fail": {
+      "goal_completion": 0.169,
+      "tone_and_empathy": 0.894,
+      "information_accuracy": 0.719,
+      "efficiency": 0.656,
+      "edge_case_handling": 0.394
+    }
+  },
+  "insights": {
+    "threshold_analysis": {
+      "current": 0.7,
+      "suggested": 0.65,
+      "score_separation": 0.028000000000000025,
+      "recommendation": "threshold is well-calibrated"
+    },
+    "dimension_discriminability": {
+      "goal_completion": 0.514,
+      "tone_and_empathy": 0.048,
+      "information_accuracy": 0.052,
+      "efficiency": 0.111,
+      "edge_case_handling": 0.268
+    },
+    "most_discriminative_dim": "goal_completion",
+    "least_discriminative_dim": "tone_and_empathy",
+    "false_negative_count": 8,
+    "false_positive_count": 2,
+    "fn_avg_turns": 16,
+    "fp_avg_turns": 11,
+    "scenario_gaps": [
+      "Add more challenging failure cases \u2014 judge scores failed dialogs too high"
+    ]
+  },
+  "per_dialog_results": [
+    {
+      "dialog_id": "PMUL4462.json",
+      "gt_success": true,
+      "gt_booking_confirmed": true,
+      "gt_slots_filled": 1,
+      "n_turns": 20,
+      "composite_score": 0.682,
+      "judge_passed": true,
+      "dimension_scores": {
+        "goal_completion": 0.9,
+        "tone_and_empathy": 0.8,
+        "information_accuracy": 0.7,
+        "efficiency": 0.7,
+        "edge_case_handling": 0.6
+      },
+      "structured_score": 0.5
+    },
+    {
+      "dialog_id": "PMUL0320.json",
+      "gt_success": true,
+      "gt_booking_confirmed": true,
+      "gt_slots_filled": 1,
+      "n_turns": 22,
+      "composite_score": 0.605,
+      "judge_passed": false,
+      "dimension_scores": {
+        "goal_completion": 0.5,
+        "tone_and_empathy": 1.0,
+        "information_accuracy": 0.5,
+        "efficiency": 0.8,
+        "edge_case_handling": 0.5
+      },
+      "structured_score": 0.5
+    },
+    {
+      "dialog_id": "PMUL0815.json",
+      "gt_success": true,
+      "gt_booking_confirmed": true,
+      "gt_slots_filled": 0,
+      "n_turns": 16,
+      "composite_score": 0.385,
+      "judge_passed": false,
+      "dimension_scores": {
+        "goal_completion": 0.0,
+        "tone_and_empathy": 1.0,
+        "information_accuracy": 0.5,
+        "efficiency": 0.5,
+        "edge_case_handling": 0.5
+      },
+      "structured_score": 0.0
+    },
+    {
+      "dialog_id": "PMUL3263.json",
+      "gt_success": true,
+      "gt_booking_confirmed": true,
+      "gt_slots_filled": 1,
+      "n_turns": 20,
+      "composite_score": 0.794,
+      "judge_passed": true,
+      "dimension_scores": {
+        "goal_completion": 1.0,
+        "tone_and_empathy": 0.9,
+        "information_accuracy": 1.0,
+        "efficiency": 0.9,
+        "edge_case_handling": 0.8
+      },
+      "structured_score": 0.5
+    },
+    {
+      "dialog_id": "PMUL0079.json",
+      "gt_success": false,
+      "gt_booking_confirmed": false,
+      "gt_slots_filled": 1,
+      "n_turns": 16,
+      "composite_score": 0.776,
+      "judge_passed": false,
+      "dimension_scores": {
+        "goal_completion": 0.7,
+        "tone_and_empathy": 0.8,
+        "information_accuracy": 0.6,
+        "efficiency": 0.7,
+        "edge_case_handling": 0.5
+      },
+      "structured_score": 1.0
+    },
+    {
+      "dialog_id": "PMUL0089.json",
+      "gt_success": true,
+      "gt_booking_confirmed": true,
+      "gt_slots_filled": 1,
+      "n_turns": 16,
+      "composite_score": 0.696,
+      "judge_passed": true,
+      "dimension_scores": {
+        "goal_completion": 1.0,
+        "tone_and_empathy": 0.8,
+        "information_accuracy": 0.8,
+        "efficiency": 0.7,
+        "edge_case_handling": 0.5
+      },
+      "structured_score": 0.5
+    },
+    {
+      "dialog_id": "PMUL2009.json",
+      "gt_success": false,
+      "gt_booking_confirmed": false,
+      "gt_slots_filled": 0,
+      "n_turns": 16,
+      "composite_score": 0.556,
+      "judge_passed": false,
+      "dimension_scores": {
+        "goal_completion": 0.0,
+        "tone_and_empathy": 1.0,
+        "information_accuracy": 0.8,
+        "efficiency": 0.6,
+        "edge_case_handling": 0.5
+      },
+      "structured_score": 0.5
+    },
+    {
+      "dialog_id": "SNG0528.json",
+      "gt_success": true,
+      "gt_booking_confirmed": true,
+      "gt_slots_filled": 1,
+      "n_turns": 8,
+      "composite_score": 0.787,
+      "judge_passed": true,
+      "dimension_scores": {
+        "goal_completion": 1.0,
+        "tone_and_empathy": 1.0,
+        "information_accuracy": 0.9,
+        "efficiency": 0.8,
+        "edge_case_handling": 0.8
+      },
+      "structured_score": 0.5
+    },
+    {
+      "dialog_id": "PMUL3858.json",
+      "gt_success": false,
+      "gt_booking_confirmed": false,
+      "gt_slots_filled": 0,
+      "n_turns": 22,
+      "composite_score": 0.542,
+      "judge_passed": false,
+      "dimension_scores": {
+        "goal_completion": 0.0,
+        "tone_and_empathy": 0.6,
+        "information_accuracy": 0.8,
+        "efficiency": 0.7,
+        "edge_case_handling": 0.5
+      },
+      "structured_score": 0.5
+    },
+    {
+      "dialog_id": "PMUL2166.json",
+      "gt_success": true,
+      "gt_booking_confirmed": true,
+      "gt_slots_filled": 1,
+      "n_turns": 22,
+      "composite_score": 0.682,
+      "judge_passed": true,
+      "dimension_scores": {
+        "goal_completion": 0.8,
+        "tone_and_empathy": 0.9,
+        "information_accuracy": 0.7,
+        "efficiency": 0.8,
+        "edge_case_handling": 0.6
+      },
+      "structured_score": 0.5
+    },
+    {
+      "dialog_id": "PMUL2436.json",
+      "gt_success": true,
+      "gt_booking_confirmed": true,
+      "gt_slots_filled": 1,
+      "n_turns": 16,
+      "composite_score": 0.752,
+      "judge_passed": true,
+      "dimension_scores": {
+        "goal_completion": 1.0,
+        "tone_and_empathy": 0.9,
+        "information_accuracy": 0.8,
+        "efficiency": 0.9,
+        "edge_case_handling": 0.7
+      },
+      "structured_score": 0.5
+    },
+    {
+      "dialog_id": "MUL0225.json",
+      "gt_success": true,
+      "gt_booking_confirmed": true,
+      "gt_slots_filled": 1,
+      "n_turns": 10,
+      "composite_score": 0.542,
+      "judge_passed": false,
+      "dimension_scores": {
+        "goal_completion": 0.0,
+        "tone_and_empathy": 1.0,
+        "information_accuracy": 0.8,
+        "efficiency": 0.7,
+        "edge_case_handling": 0.5
+      },
+      "structured_score": 0.5
+    },
+    {
+      "dialog_id": "SNG0589.json",
+      "gt_success": false,
+      "gt_booking_confirmed": false,
+      "gt_slots_filled": 1,
+      "n_turns": 6,
+      "composite_score": 0.51,
+      "judge_passed": false,
+      "dimension_scores": {
+        "goal_completion": 0.0,
+        "tone_and_empathy": 0.8,
+        "information_accuracy": 0.5,
+        "efficiency": 0.5,
+        "edge_case_handling": 0.0
+      },
+      "structured_score": 1.0
+    },
+    {
+      "dialog_id": "MUL0237.json",
+      "gt_success": true,
+      "gt_booking_confirmed": true,
+      "gt_slots_filled": 1,
+      "n_turns": 16,
+      "composite_score": 0.773,
+      "judge_passed": true,
+      "dimension_scores": {
+        "goal_completion": 1.0,
+        "tone_and_empathy": 1.0,
+        "information_accuracy": 0.9,
+        "efficiency": 0.8,
+        "edge_case_handling": 0.8
+      },
+      "structured_score": 0.5
+    },
+    {
+      "dialog_id": "PMUL4125.json",
+      "gt_success": false,
+      "gt_booking_confirmed": false,
+      "gt_slots_filled": 1,
+      "n_turns": 12,
+      "composite_score": 0.685,
+      "judge_passed": false,
+      "dimension_scores": {
+        "goal_completion": 0.0,
+        "tone_and_empathy": 1.0,
+        "information_accuracy": 0.8,
+        "efficiency": 0.7,
+        "edge_case_handling": 0.5
+      },
+      "structured_score": 1.0
+    },
+    {
+      "dialog_id": "MUL1588.json",
+      "gt_success": true,
+      "gt_booking_confirmed": true,
+      "gt_slots_filled": 1,
+      "n_turns": 18,
+      "composite_score": 0.598,
+      "judge_passed": false,
+      "dimension_scores": {
+        "goal_completion": 0.0,
+        "tone_and_empathy": 1.0,
+        "information_accuracy": 0.8,
+        "efficiency": 0.7,
+        "edge_case_handling": 0.8
+      },
+      "structured_score": 0.5
+    },
+    {
+      "dialog_id": "SNG0580.json",
+      "gt_success": false,
+      "gt_booking_confirmed": false,
+      "gt_slots_filled": 0,
+      "n_turns": 8,
+      "composite_score": 0.64,
+      "judge_passed": true,
+      "dimension_scores": {
+        "goal_completion": 0.8,
+        "tone_and_empathy": 1.0,
+        "information_accuracy": 0.7,
+        "efficiency": 0.7,
+        "edge_case_handling": 0.5
+      },
+      "structured_score": 0.5
+    },
+    {
+      "dialog_id": "PMUL3224.json",
+      "gt_success": false,
+      "gt_booking_confirmed": false,
+      "gt_slots_filled": 1,
+      "n_turns": 14,
+      "composite_score": 0.692,
+      "judge_passed": false,
+      "dimension_scores": {
+        "goal_completion": 0.0,
+        "tone_and_empathy": 0.8,
+        "information_accuracy": 0.8,
+        "efficiency": 0.7,
+        "edge_case_handling": 0.5
+      },
+      "structured_score": 1.0
+    },
+    {
+      "dialog_id": "PMUL4440.json",
+      "gt_success": true,
+      "gt_booking_confirmed": true,
+      "gt_slots_filled": 1,
+      "n_turns": 20,
+      "composite_score": 0.731,
+      "judge_passed": true,
+      "dimension_scores": {
+        "goal_completion": 1.0,
+        "tone_and_empathy": 0.8,
+        "information_accuracy": 0.8,
+        "efficiency": 0.8,
+        "edge_case_handling": 0.7
+      },
+      "structured_score": 0.5
+    },
+    {
+      "dialog_id": "PMUL4840.json",
+      "gt_success": true,
+      "gt_booking_confirmed": true,
+      "gt_slots_filled": 1,
+      "n_turns": 14,
+      "composite_score": 0.626,
+      "judge_passed": false,
+      "dimension_scores": {
+        "goal_completion": 0.5,
+        "tone_and_empathy": 1.0,
+        "information_accuracy": 0.5,
+        "efficiency": 0.8,
+        "edge_case_handling": 0.5
+      },
+      "structured_score": 0.5
+    },
+    {
+      "dialog_id": "PMUL0550.json",
+      "gt_success": true,
+      "gt_booking_confirmed": true,
+      "gt_slots_filled": 1,
+      "n_turns": 14,
+      "composite_score": 0.682,
+      "judge_passed": true,
+      "dimension_scores": {
+        "goal_completion": 1.0,
+        "tone_and_empathy": 0.8,
+        "information_accuracy": 0.8,
+        "efficiency": 0.7,
+        "edge_case_handling": 0.5
+      },
+      "structured_score": 0.5
+    },
+    {
+      "dialog_id": "PMUL2275.json",
+      "gt_success": true,
+      "gt_booking_confirmed": true,
+      "gt_slots_filled": 1,
+      "n_turns": 18,
+      "composite_score": 0.766,
+      "judge_passed": true,
+      "dimension_scores": {
+        "goal_completion": 1.0,
+        "tone_and_empathy": 1.0,
+        "information_accuracy": 0.8,
+        "efficiency": 0.9,
+        "edge_case_handling": 0.8
+      },
+      "structured_score": 0.5
+    },
+    {
+      "dialog_id": "MUL0323.json",
+      "gt_success": true,
+      "gt_booking_confirmed": true,
+      "gt_slots_filled": 0,
+      "n_turns": 12,
+      "composite_score": 0.392,
+      "judge_passed": false,
+      "dimension_scores": {
+        "goal_completion": 0.0,
+        "tone_and_empathy": 1.0,
+        "information_accuracy": 0.5,
+        "efficiency": 0.8,
+        "edge_case_handling": 0.5
+      },
+      "structured_score": 0.0
+    },
+    {
+      "dialog_id": "SNG0568.json",
+      "gt_success": false,
+      "gt_booking_confirmed": false,
+      "gt_slots_filled": 0,
+      "n_turns": 6,
+      "composite_score": 0.395,
+      "judge_passed": false,
+      "dimension_scores": {
+        "goal_completion": 0.0,
+        "tone_and_empathy": 1.0,
+        "information_accuracy": 1.0,
+        "efficiency": 0.5,
+        "edge_case_handling": 0.0
+      },
+      "structured_score": 0.5
+    },
+    {
+      "dialog_id": "PMUL0998.json",
+      "gt_success": true,
+      "gt_booking_confirmed": true,
+      "gt_slots_filled": 1,
+      "n_turns": 16,
+      "composite_score": 0.766,
+      "judge_passed": true,
+      "dimension_scores": {
+        "goal_completion": 1.0,
+        "tone_and_empathy": 0.9,
+        "information_accuracy": 0.9,
+        "efficiency": 0.8,
+        "edge_case_handling": 0.8
+      },
+      "structured_score": 0.5
+    },
+    {
+      "dialog_id": "PMUL4660.json",
+      "gt_success": false,
+      "gt_booking_confirmed": false,
+      "gt_slots_filled": 1,
+      "n_turns": 16,
+      "composite_score": 0.615,
+      "judge_passed": false,
+      "dimension_scores": {
+        "goal_completion": 0.0,
+        "tone_and_empathy": 0.5,
+        "information_accuracy": 1.0,
+        "efficiency": 0.5,
+        "edge_case_handling": 0.0
+      },
+      "structured_score": 1.0
+    },
+    {
+      "dialog_id": "PMUL0399.json",
+      "gt_success": false,
+      "gt_booking_confirmed": false,
+      "gt_slots_filled": 1,
+      "n_turns": 22,
+      "composite_score": 0.776,
+      "judge_passed": false,
+      "dimension_scores": {
+        "goal_completion": 0.0,
+        "tone_and_empathy": 1.0,
+        "information_accuracy": 0.8,
+        "efficiency": 0.8,
+        "edge_case_handling": 0.8
+      },
+      "structured_score": 1.0
+    },
+    {
+      "dialog_id": "MUL1555.json",
+      "gt_success": true,
+      "gt_booking_confirmed": true,
+      "gt_slots_filled": 1,
+      "n_turns": 12,
+      "composite_score": 0.535,
+      "judge_passed": false,
+      "dimension_scores": {
+        "goal_completion": 0.0,
+        "tone_and_empathy": 1.0,
+        "information_accuracy": 0.8,
+        "efficiency": 0.7,
+        "edge_case_handling": 0.5
+      },
+      "structured_score": 0.5
+    },
+    {
+      "dialog_id": "PMUL0844.json",
+      "gt_success": false,
+      "gt_booking_confirmed": false,
+      "gt_slots_filled": 1,
+      "n_turns": 14,
+      "composite_score": 0.615,
+      "judge_passed": false,
+      "dimension_scores": {
+        "goal_completion": 0.0,
+        "tone_and_empathy": 1.0,
+        "information_accuracy": 0.5,
+        "efficiency": 0.5,
+        "edge_case_handling": 0.0
+      },
+      "structured_score": 1.0
+    },
+    {
+      "dialog_id": "SNG0691.json",
+      "gt_success": true,
+      "gt_booking_confirmed": true,
+      "gt_slots_filled": 1,
+      "n_turns": 10,
+      "composite_score": 0.745,
+      "judge_passed": true,
+      "dimension_scores": {
+        "goal_completion": 1.0,
+        "tone_and_empathy": 1.0,
+        "information_accuracy": 0.8,
+        "efficiency": 0.8,
+        "edge_case_handling": 0.7
+      },
+      "structured_score": 0.5
+    },
+    {
+      "dialog_id": "PMUL4949.json",
+      "gt_success": false,
+      "gt_booking_confirmed": false,
+      "gt_slots_filled": 1,
+      "n_turns": 14,
+      "composite_score": 0.832,
+      "judge_passed": true,
+      "dimension_scores": {
+        "goal_completion": 0.7,
+        "tone_and_empathy": 1.0,
+        "information_accuracy": 0.8,
+        "efficiency": 0.8,
+        "edge_case_handling": 0.5
+      },
+      "structured_score": 1.0
+    },
+    {
+      "dialog_id": "MUL1248.json",
+      "gt_success": true,
+      "gt_booking_confirmed": true,
+      "gt_slots_filled": 1,
+      "n_turns": 24,
+      "composite_score": 0.626,
+      "judge_passed": false,
+      "dimension_scores": {
+        "goal_completion": 0.0,
+        "tone_and_empathy": 1.0,
+        "information_accuracy": 0.8,
+        "efficiency": 0.8,
+        "edge_case_handling": 0.8
+      },
+      "structured_score": 0.5
+    },
+    {
+      "dialog_id": "MUL0978.json",
+      "gt_success": false,
+      "gt_booking_confirmed": false,
+      "gt_slots_filled": 0,
+      "n_turns": 14,
+      "composite_score": 0.535,
+      "judge_passed": false,
+      "dimension_scores": {
+        "goal_completion": 0.0,
+        "tone_and_empathy": 1.0,
+        "information_accuracy": 0.5,
+        "efficiency": 0.7,
+        "edge_case_handling": 0.5
+      },
+      "structured_score": 0.5
+    },
+    {
+      "dialog_id": "PMUL4643.json",
+      "gt_success": true,
+      "gt_booking_confirmed": true,
+      "gt_slots_filled": 1,
+      "n_turns": 16,
+      "composite_score": 0.766,
+      "judge_passed": true,
+      "dimension_scores": {
+        "goal_completion": 1.0,
+        "tone_and_empathy": 0.9,
+        "information_accuracy": 0.9,
+        "efficiency": 0.8,
+        "edge_case_handling": 0.8
+      },
+      "structured_score": 0.5
+    },
+    {
+      "dialog_id": "MUL0071.json",
+      "gt_success": true,
+      "gt_booking_confirmed": true,
+      "gt_slots_filled": 0,
+      "n_turns": 18,
+      "composite_score": 0.553,
+      "judge_passed": true,
+      "dimension_scores": {
+        "goal_completion": 0.8,
+        "tone_and_empathy": 1.0,
+        "information_accuracy": 0.8,
+        "efficiency": 0.7,
+        "edge_case_handling": 0.8
+      },
+      "structured_score": 0.0
+    },
+    {
+      "dialog_id": "MUL2499.json",
+      "gt_success": true,
+      "gt_booking_confirmed": true,
+      "gt_slots_filled": 1,
+      "n_turns": 22,
+      "composite_score": 0.703,
+      "judge_passed": true,
+      "dimension_scores": {
+        "goal_completion": 0.9,
+        "tone_and_empathy": 0.9,
+        "information_accuracy": 0.8,
+        "efficiency": 0.7,
+        "edge_case_handling": 0.6
+      },
+      "structured_score": 0.5
+    },
+    {
+      "dialog_id": "MUL1575.json",
+      "gt_success": true,
+      "gt_booking_confirmed": true,
+      "gt_slots_filled": 1,
+      "n_turns": 14,
+      "composite_score": 0.773,
+      "judge_passed": true,
+      "dimension_scores": {
+        "goal_completion": 1.0,
+        "tone_and_empathy": 1.0,
+        "information_accuracy": 0.9,
+        "efficiency": 0.8,
+        "edge_case_handling": 0.8
+      },
+      "structured_score": 0.5
+    },
+    {
+      "dialog_id": "PMUL3309.json",
+      "gt_success": false,
+      "gt_booking_confirmed": false,
+      "gt_slots_filled": 1,
+      "n_turns": 12,
+      "composite_score": 0.776,
+      "judge_passed": false,
+      "dimension_scores": {
+        "goal_completion": 0.5,
+        "tone_and_empathy": 1.0,
+        "information_accuracy": 0.5,
+        "efficiency": 0.8,
+        "edge_case_handling": 0.5
+      },
+      "structured_score": 1.0
+    },
+    {
+      "dialog_id": "PMUL0578.json",
+      "gt_success": false,
+      "gt_booking_confirmed": false,
+      "gt_slots_filled": 0,
+      "n_turns": 18,
+      "composite_score": 0.626,
+      "judge_passed": false,
+      "dimension_scores": {
+        "goal_completion": 0.0,
+        "tone_and_empathy": 1.0,
+        "information_accuracy": 0.8,
+        "efficiency": 0.8,
+        "edge_case_handling": 0.5
+      },
+      "structured_score": 0.5
+    },
+    {
+      "dialog_id": "PMUL2477.json",
+      "gt_success": false,
+      "gt_booking_confirmed": false,
+      "gt_slots_filled": 1,
+      "n_turns": 12,
+      "composite_score": 0.615,
+      "judge_passed": false,
+      "dimension_scores": {
+        "goal_completion": 0.0,
+        "tone_and_empathy": 0.8,
+        "information_accuracy": 0.6,
+        "efficiency": 0.5,
+        "edge_case_handling": 0.5
+      },
+      "structured_score": 1.0
+    }
+  ]
+}

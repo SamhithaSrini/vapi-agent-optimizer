@@ -1,0 +1,482 @@
+[
+  {
+    "id": "dental_new_patient_01",
+    "split": "train",
+    "category": "booking",
+    "difficulty": "easy",
+    "persona": {
+      "name": "Emily Carter",
+      "intent": "Book a routine cleaning appointment as a new patient",
+      "behaviour": "Friendly and cooperative. Answers all questions readily. No complications."
+    },
+    "expected_outcome": "Appointment booked with name, date, and time confirmed",
+    "expected_structured_fields": ["appointment_booked", "collected_name", "collected_date", "collected_time"],
+    "known_edge_cases": [],
+    "script": [
+      {"turn": 1, "line": "Hi, I'd like to book a cleaning appointment. I'm a new patient."},
+      {"turn": 2, "line": "My name is Emily Carter."},
+      {"turn": 3, "line": "Next Thursday afternoon would work great."},
+      {"turn": 4, "line": "2pm is perfect. Thank you so much!"}
+    ]
+  },
+  {
+    "id": "dental_new_patient_02",
+    "split": "train",
+    "category": "booking",
+    "difficulty": "medium",
+    "persona": {
+      "name": "Marcus Webb",
+      "intent": "Book a cleaning but first needs to confirm the office accepts his insurance (BlueCross) before committing",
+      "behaviour": "Cautious. Asks about insurance before giving personal details. Will book only if insurance is accepted."
+    },
+    "expected_outcome": "Insurance confirmed, appointment booked with all details collected",
+    "expected_structured_fields": ["appointment_booked", "collected_name", "collected_date", "collected_time", "collected_insurance"],
+    "known_edge_cases": ["caller may hang up if insurance question is not addressed"],
+    "script": [
+      {"turn": 1, "line": "Hi, before I book an appointment I need to know — do you take BlueCross insurance?"},
+      {"turn": 2, "line": "Great. In that case I'd like to book a cleaning. I'm a new patient, name is Marcus Webb."},
+      {"turn": 3, "line": "Friday morning works. How about 10am?"},
+      {"turn": 4, "line": "Perfect. Thanks, goodbye!"}
+    ]
+  },
+  {
+    "id": "dental_emergency_01",
+    "split": "train",
+    "category": "emergency",
+    "difficulty": "hard",
+    "persona": {
+      "name": "James Ortiz",
+      "intent": "Has severe toothache, needs same-day appointment or emergency guidance",
+      "behaviour": "Anxious and in pain. Speaks urgently. Needs reassurance. If no same-day slot, wants to know what to do."
+    },
+    "expected_outcome": "Same-day slot offered or emergency escalation provided with clear next steps",
+    "expected_structured_fields": ["collected_name", "escalation_offered", "caller_satisfied"],
+    "known_edge_cases": ["no same-day slots available", "caller may be distressed"],
+    "script": [
+      {"turn": 1, "line": "I'm in really bad pain, I have a terrible toothache. I need to be seen today if possible."},
+      {"turn": 2, "line": "It started last night and it's getting worse. My name is James Ortiz."},
+      {"turn": 3, "line": "Is there any way you can squeeze me in? I can come in any time today."},
+      {"turn": 4, "line": "Okay, what should I do in the meantime?"}
+    ]
+  },
+  {
+    "id": "dental_reschedule_01",
+    "split": "train",
+    "category": "reschedule",
+    "difficulty": "easy",
+    "persona": {
+      "name": "Patricia Lee",
+      "intent": "Move existing appointment from Wednesday to Friday, same time",
+      "behaviour": "Polite and straightforward. Has her appointment details ready."
+    },
+    "expected_outcome": "Appointment rescheduled to new date",
+    "expected_structured_fields": ["appointment_booked", "collected_name", "collected_date", "collected_time"],
+    "known_edge_cases": [],
+    "script": [
+      {"turn": 1, "line": "Hi, I need to reschedule my appointment. My name is Patricia Lee."},
+      {"turn": 2, "line": "I have a cleaning on Wednesday at 3pm but something came up. Can I move it to Friday same time?"},
+      {"turn": 3, "line": "3pm Friday works perfectly. Thank you!"}
+    ]
+  },
+  {
+    "id": "dental_reschedule_02",
+    "split": "train",
+    "category": "reschedule",
+    "difficulty": "medium",
+    "persona": {
+      "name": "Derek Pham",
+      "intent": "Reschedule appointment but only has availability on weekday mornings this week",
+      "behaviour": "Has limited availability. Gets slightly frustrated if no good options are offered."
+    },
+    "expected_outcome": "Agent finds a workable slot or offers a clear alternative (next week, waitlist)",
+    "expected_structured_fields": ["appointment_booked", "collected_name", "collected_date", "collected_time"],
+    "known_edge_cases": ["no weekday morning slots available this week"],
+    "script": [
+      {"turn": 1, "line": "Hi, Derek Pham here. I need to reschedule. I can only do weekday mornings this week."},
+      {"turn": 2, "line": "Thursday morning? Or Tuesday?"},
+      {"turn": 3, "line": "Okay, what about next week instead?"},
+      {"turn": 4, "line": "Monday at 9am next week works. Thanks."}
+    ]
+  },
+  {
+    "id": "dental_cancel_01",
+    "split": "train",
+    "category": "cancel",
+    "difficulty": "easy",
+    "persona": {
+      "name": "Susan Moore",
+      "intent": "Cancel her appointment, not interested in rebooking",
+      "behaviour": "Decided. Not upset. Just wants the cancellation confirmed."
+    },
+    "expected_outcome": "Appointment cancelled and confirmation given",
+    "expected_structured_fields": ["collected_name"],
+    "known_edge_cases": [],
+    "script": [
+      {"turn": 1, "line": "Hi, I need to cancel my appointment please. This is Susan Moore."},
+      {"turn": 2, "line": "I have a checkup on Thursday at 11am."},
+      {"turn": 3, "line": "No thanks, I won't be rebooking right now. Just cancel please."},
+      {"turn": 4, "line": "Thank you, goodbye."}
+    ]
+  },
+  {
+    "id": "dental_services_01",
+    "split": "train",
+    "category": "info",
+    "difficulty": "easy",
+    "persona": {
+      "name": "Rachel Kim",
+      "intent": "Wants to know what teeth whitening options the office offers",
+      "behaviour": "Curious and friendly. Not ready to book, just researching."
+    },
+    "expected_outcome": "Whitening options explained clearly; caller satisfied",
+    "expected_structured_fields": ["caller_satisfied"],
+    "known_edge_cases": [],
+    "script": [
+      {"turn": 1, "line": "Hi, I was wondering what teeth whitening treatments you offer?"},
+      {"turn": 2, "line": "Do you do in-office whitening or just take-home kits?"},
+      {"turn": 3, "line": "Interesting. And how long does the in-office one take?"},
+      {"turn": 4, "line": "That's helpful, thank you!"}
+    ]
+  },
+  {
+    "id": "dental_services_02",
+    "split": "train",
+    "category": "info",
+    "difficulty": "medium",
+    "persona": {
+      "name": "Anthony Brown",
+      "intent": "Wants to know the cost of getting a cavity filling",
+      "behaviour": "Budget-conscious. Wants a specific number but understands if it's a range."
+    },
+    "expected_outcome": "Price range given with appropriate caveat about exam needed for exact quote",
+    "expected_structured_fields": ["caller_satisfied"],
+    "known_edge_cases": ["agent must not quote a fake precise price"],
+    "script": [
+      {"turn": 1, "line": "Hi, how much does a filling cost at your office?"},
+      {"turn": 2, "line": "Can you give me a ballpark? I'm trying to budget for it."},
+      {"turn": 3, "line": "Does insurance cover any of it?"},
+      {"turn": 4, "line": "Okay, that's helpful. Thanks."}
+    ]
+  },
+  {
+    "id": "dental_hours_01",
+    "split": "train",
+    "category": "info",
+    "difficulty": "easy",
+    "persona": {
+      "name": "Linda Torres",
+      "intent": "Wants to know office hours and whether they're open on holidays",
+      "behaviour": "Straightforward. Just needs the information."
+    },
+    "expected_outcome": "Office hours provided; holiday policy addressed",
+    "expected_structured_fields": ["caller_satisfied"],
+    "known_edge_cases": [],
+    "script": [
+      {"turn": 1, "line": "What are your office hours?"},
+      {"turn": 2, "line": "Are you open on weekends?"},
+      {"turn": 3, "line": "What about holidays — like Thanksgiving or Christmas?"},
+      {"turn": 4, "line": "Great, thanks for the info!"}
+    ]
+  },
+  {
+    "id": "dental_upset_01",
+    "split": "train",
+    "category": "complaint",
+    "difficulty": "hard",
+    "persona": {
+      "name": "Robert Chang",
+      "intent": "Complaining about a painful experience at his last visit; wants acknowledgment and resolution",
+      "behaviour": "Upset and frustrated. Not screaming but clearly unhappy. Wants to feel heard before any solution is offered."
+    },
+    "expected_outcome": "Agent de-escalates, acknowledges issue, offers resolution path (speak to manager, free follow-up)",
+    "expected_structured_fields": ["caller_satisfied", "escalation_offered"],
+    "known_edge_cases": ["agent must not be dismissive or defensive"],
+    "script": [
+      {"turn": 1, "line": "I'm calling because I had a really bad experience at my last appointment. I was in a lot of pain afterwards and nobody warned me."},
+      {"turn": 2, "line": "I've been coming here for 3 years and this has never happened before. I'm really disappointed."},
+      {"turn": 3, "line": "I just want someone to acknowledge that this wasn't okay."},
+      {"turn": 4, "line": "Okay, I'd like to speak with the office manager if possible."}
+    ]
+  },
+  {
+    "id": "dental_confused_01",
+    "split": "train",
+    "category": "edge",
+    "difficulty": "medium",
+    "persona": {
+      "name": "Helen Foster",
+      "intent": "Has tooth sensitivity and isn't sure what kind of appointment to book",
+      "behaviour": "Uncertain and a little anxious. Needs guidance on what appointment type is right for her."
+    },
+    "expected_outcome": "Agent asks clarifying questions and recommends appropriate appointment type",
+    "expected_structured_fields": ["appointment_booked", "collected_name", "caller_satisfied"],
+    "known_edge_cases": ["caller might not know dental terminology"],
+    "script": [
+      {"turn": 1, "line": "Hi, I'm not sure what kind of appointment I need. I've been having tooth sensitivity when I drink cold things."},
+      {"turn": 2, "line": "Should I book a cleaning or a checkup or something else?"},
+      {"turn": 3, "line": "Okay, a general exam makes sense. My name is Helen Foster. Can I book one?"},
+      {"turn": 4, "line": "Next Tuesday at any time works. Thank you!"}
+    ]
+  },
+  {
+    "id": "dental_multi_01",
+    "split": "train",
+    "category": "booking",
+    "difficulty": "hard",
+    "persona": {
+      "name": "David Santos",
+      "intent": "Book appointments for himself, his wife, and his 8-year-old son, ideally back-to-back",
+      "behaviour": "Organized. Has all the names ready. Prefers Saturday if possible."
+    },
+    "expected_outcome": "Three appointments booked or agent clearly explains process for multi-booking",
+    "expected_structured_fields": ["appointment_booked", "collected_name", "collected_date", "collected_time"],
+    "known_edge_cases": ["may not be able to fit three back-to-back on the same day"],
+    "script": [
+      {"turn": 1, "line": "Hi, I need to book appointments for three people — myself, my wife, and our son."},
+      {"turn": 2, "line": "David Santos, my wife is Maria Santos, and our son is Luca, he's 8."},
+      {"turn": 3, "line": "We'd love Saturday if you have three consecutive slots."},
+      {"turn": 4, "line": "9, 10, and 11am Saturday works great!"}
+    ]
+  },
+  {
+    "id": "dental_no_insurance_01",
+    "split": "train",
+    "category": "info",
+    "difficulty": "medium",
+    "persona": {
+      "name": "Tanya Brooks",
+      "intent": "Wants to know about payment options since she has no dental insurance",
+      "behaviour": "Practical and direct. Asking about payment plans and self-pay discounts."
+    },
+    "expected_outcome": "Payment options explained including payment plans and self-pay information",
+    "expected_structured_fields": ["caller_satisfied"],
+    "known_edge_cases": [],
+    "script": [
+      {"turn": 1, "line": "Hi, I don't have dental insurance. Do you have any payment plans or self-pay options?"},
+      {"turn": 2, "line": "Is there a discount for paying cash?"},
+      {"turn": 3, "line": "Do you take CareCredit?"},
+      {"turn": 4, "line": "Okay, that's good to know. Thanks!"}
+    ]
+  },
+  {
+    "id": "dental_wrong_number_01",
+    "split": "train",
+    "category": "edge",
+    "difficulty": "easy",
+    "persona": {
+      "name": "Gary Mitchell",
+      "intent": "Called the wrong dental office by mistake",
+      "behaviour": "Realizes quickly that this isn't the office he meant to call. Polite about it."
+    },
+    "expected_outcome": "Agent handles gracefully without pressuring caller to stay",
+    "expected_structured_fields": ["caller_satisfied"],
+    "known_edge_cases": ["caller will not book an appointment"],
+    "script": [
+      {"turn": 1, "line": "Hi, I'm calling to reschedule with Dr. Peterson..."},
+      {"turn": 2, "line": "Oh wait, is this Bright Smile Dental? I think I dialled the wrong number."},
+      {"turn": 3, "line": "I was trying to reach Lakeside Family Dentistry. Sorry about that!"},
+      {"turn": 4, "line": "Thanks anyway, bye!"}
+    ]
+  },
+  {
+    "id": "dental_holdout_01",
+    "split": "holdout",
+    "category": "booking",
+    "difficulty": "medium",
+    "persona": {
+      "name": "Claire Nolan",
+      "intent": "Book a cleaning but specifically needs an early morning slot (before 9am) due to work schedule",
+      "behaviour": "Pleasant but has a hard constraint on timing. Will push back if no early slots offered."
+    },
+    "expected_outcome": "Early morning appointment booked or agent explains earliest available slot",
+    "expected_structured_fields": ["appointment_booked", "collected_name", "collected_date", "collected_time"],
+    "known_edge_cases": ["may not have before-9am availability"],
+    "script": [
+      {"turn": 1, "line": "Hi, I'd like to book a cleaning. My name's Claire Nolan."},
+      {"turn": 2, "line": "I need something before 9am if possible — I have to be at work by 9:30."},
+      {"turn": 3, "line": "Do you have anything this week or next week at 8 or 8:30am?"},
+      {"turn": 4, "line": "8am Thursday works. Thank you!"}
+    ]
+  },
+  {
+    "id": "dental_holdout_02",
+    "split": "holdout",
+    "category": "emergency",
+    "difficulty": "hard",
+    "persona": {
+      "name": "Kevin Walsh",
+      "intent": "Broke a tooth on something hard, is panicking, needs emergency help immediately",
+      "behaviour": "Panicked and speaking fast. Needs to be calmed down first, then helped. Will respond well to reassurance."
+    },
+    "expected_outcome": "Agent reassures caller, provides clear emergency instructions and/or same-day appointment",
+    "expected_structured_fields": ["collected_name", "escalation_offered", "caller_satisfied"],
+    "known_edge_cases": ["caller is emotional — tone matters a lot"],
+    "script": [
+      {"turn": 1, "line": "Oh god, I just broke my tooth on an ice cube. Half of it is just gone. What do I do??"},
+      {"turn": 2, "line": "It's not bleeding a lot but I'm freaking out. Can I come in today?"},
+      {"turn": 3, "line": "Kevin Walsh. Please, is there any slot today?"},
+      {"turn": 4, "line": "Okay, I'll be there. What should I do with the broken piece?"}
+    ]
+  },
+  {
+    "id": "dental_holdout_03",
+    "split": "holdout",
+    "category": "reschedule",
+    "difficulty": "medium",
+    "persona": {
+      "name": "Monica Reyes",
+      "intent": "Reschedule appointment but caller and office have conflicting availability all week",
+      "behaviour": "Patient but persistent. Goes through several options before finding something that works."
+    },
+    "expected_outcome": "Agent works through options and finds a resolution (booking or waitlist)",
+    "expected_structured_fields": ["appointment_booked", "collected_name", "collected_date", "collected_time"],
+    "known_edge_cases": ["long back-and-forth required"],
+    "script": [
+      {"turn": 1, "line": "Hi, Monica Reyes. I need to reschedule my appointment from Monday."},
+      {"turn": 2, "line": "I can't do Monday through Wednesday this week. Can you do Thursday or Friday?"},
+      {"turn": 3, "line": "Thursday afternoon is taken for me too. What about Friday morning?"},
+      {"turn": 4, "line": "Friday at 11am works. Let's do that, thanks."}
+    ]
+  },
+  {
+    "id": "dental_holdout_04",
+    "split": "holdout",
+    "category": "info",
+    "difficulty": "easy",
+    "persona": {
+      "name": "Frank Simmons",
+      "intent": "Wants info on the range of services offered and rough prices before deciding to book",
+      "behaviour": "Methodical. Asks about several services. Not in a rush."
+    },
+    "expected_outcome": "Services and pricing explained clearly and accurately",
+    "expected_structured_fields": ["caller_satisfied"],
+    "known_edge_cases": [],
+    "script": [
+      {"turn": 1, "line": "Hi, I'm thinking of switching dentists. Can you tell me what services you offer?"},
+      {"turn": 2, "line": "Do you do root canals and crowns, or just general dentistry?"},
+      {"turn": 3, "line": "What's a rough price for a crown if I'm paying out of pocket?"},
+      {"turn": 4, "line": "Alright, that sounds reasonable. Thanks for the info!"}
+    ]
+  },
+  {
+    "id": "dental_holdout_05",
+    "split": "holdout",
+    "category": "complaint",
+    "difficulty": "hard",
+    "persona": {
+      "name": "Nancy Park",
+      "intent": "Angry about being billed for a service she says was not performed",
+      "behaviour": "Firm and annoyed. Not abusive but very direct. Wants the issue resolved, not just acknowledged."
+    },
+    "expected_outcome": "Agent de-escalates, takes the issue seriously, and escalates to billing or manager",
+    "expected_structured_fields": ["caller_satisfied", "escalation_offered"],
+    "known_edge_cases": ["billing disputes require escalation — agent cannot resolve alone"],
+    "script": [
+      {"turn": 1, "line": "I got a bill for a fluoride treatment but I specifically told the hygienist I didn't want it. I'm not paying for something I declined."},
+      {"turn": 2, "line": "This is ridiculous. I was very clear. Who do I talk to about this?"},
+      {"turn": 3, "line": "Can you transfer me to someone who can actually fix this?"},
+      {"turn": 4, "line": "Fine, have them call me back today please."}
+    ]
+  },
+  {
+    "id": "dental_holdout_06",
+    "split": "holdout",
+    "category": "edge",
+    "difficulty": "medium",
+    "persona": {
+      "name": "Ana Gomez",
+      "intent": "Spanish-speaking caller with limited English trying to book an appointment",
+      "behaviour": "Speaks broken English. Uses simple words. Gets confused by complex sentences. Very polite."
+    },
+    "expected_outcome": "Agent acknowledges language barrier gracefully, simplifies communication or offers Spanish-speaking staff",
+    "expected_structured_fields": ["caller_satisfied", "escalation_offered"],
+    "known_edge_cases": ["agent cannot speak Spanish — must handle gracefully"],
+    "script": [
+      {"turn": 1, "line": "Hello... I want... appointment? For teeth cleaning?"},
+      {"turn": 2, "line": "Sorry, my English not so good. You have someone who speak Spanish?"},
+      {"turn": 3, "line": "Okay... my name Ana Gomez. I come... Tuesday?"},
+      {"turn": 4, "line": "Thank you. Okay. Bye bye."}
+    ]
+  },
+  {
+    "id": "dental_holdout_07",
+    "split": "holdout",
+    "category": "info",
+    "difficulty": "hard",
+    "persona": {
+      "name": "Oliver Grant",
+      "intent": "Wants cost estimate for a root canal AND insurance confirmation before agreeing to book",
+      "behaviour": "Methodical. Will not book until both questions are answered. Politely persistent."
+    },
+    "expected_outcome": "Cost range provided AND insurance acceptance confirmed AND appointment booked",
+    "expected_structured_fields": ["appointment_booked", "collected_name", "collected_date", "collected_time", "collected_insurance"],
+    "known_edge_cases": ["agent must answer cost AND insurance before caller commits — partial answers fail the task"],
+    "script": [
+      {"turn": 1, "line": "Hi, I may need a root canal. Before I book, can you tell me roughly what it costs and whether you take Cigna?"},
+      {"turn": 2, "line": "Good to know on insurance. And the price range — ballpark?"},
+      {"turn": 3, "line": "Okay. In that case I'd like to book a consultation. I'm Oliver Grant."},
+      {"turn": 4, "line": "Thursday at 11am works perfectly. Thank you!"}
+    ]
+  },
+  {
+    "id": "dental_polite_fail_01",
+    "split": "train",
+    "category": "booking",
+    "difficulty": "hard",
+    "persona": {
+      "name": "Oliver Grant",
+      "intent": "Book a root canal consultation, also wants to know the cost upfront before confirming",
+      "behaviour": "Methodical. Will NOT confirm the booking until he has a cost estimate. Gets politely frustrated if the agent keeps trying to book without answering the cost question first."
+    },
+    "expected_outcome": "Cost range given AND appointment booked with name, date, time confirmed",
+    "expected_structured_fields": ["appointment_booked", "collected_name", "collected_date", "collected_time"],
+    "known_edge_cases": ["agent must answer cost question before attempting to book — skipping it means task is incomplete even if booking step is attempted"],
+    "script": [
+      {"turn": 1, "line": "Hi, I need a root canal consultation. Before I book though, can you give me a rough idea of the cost?"},
+      {"turn": 2, "line": "I understand you can't give an exact price, but can you give me a ballpark? Like, are we talking $500 or $2000?"},
+      {"turn": 3, "line": "Okay that helps. My name is Oliver Grant. Can I book for next Wednesday morning?"},
+      {"turn": 4, "line": "10am Wednesday works. Thank you!"}
+    ]
+  },
+  {
+    "id": "dental_multi_intent_01",
+    "split": "train",
+    "category": "booking",
+    "difficulty": "hard",
+    "persona": {
+      "name": "Priya Sharma",
+      "intent": "First asks about teeth whitening options and pricing, then decides to book a cleaning instead, then asks if she can add a whitening consultation to the same visit",
+      "behaviour": "Changes her mind during the call. Friendly but goes through several topic shifts. Tests whether the agent tracks the conversation state."
+    },
+    "expected_outcome": "Final appointment booked for cleaning (with or without whitening add-on) and all booking details confirmed",
+    "expected_structured_fields": ["appointment_booked", "collected_name", "collected_date", "collected_time"],
+    "known_edge_cases": ["caller changes mind mid-call — agent must track current intent, not get confused by earlier questions"],
+    "script": [
+      {"turn": 1, "line": "Hi, I was wondering what teeth whitening options you have and roughly what they cost?"},
+      {"turn": 2, "line": "Hmm, actually I think I'll just start with a regular cleaning. Can I book one?"},
+      {"turn": 3, "line": "I'm Priya Sharma. Could I do Friday afternoon?"},
+      {"turn": 4, "line": "3pm Friday is great. Oh wait, can I also ask the hygienist about whitening while I'm there?"},
+      {"turn": 5, "line": "Perfect. See you Friday at 3pm. Thanks!"}
+    ]
+  },
+  {
+    "id": "dental_abandoned_01",
+    "split": "train",
+    "category": "booking",
+    "difficulty": "medium",
+    "persona": {
+      "name": "Ben Wallace",
+      "intent": "Starts to book an appointment but abandons it when the agent cannot confirm whether they accept his specific insurance (Cigna DPPO)",
+      "behaviour": "Reasonable. Not angry. Just wants a clear answer on insurance before committing time to an appointment. Will say goodbye if the agent can't confirm."
+    },
+    "expected_outcome": "Agent gives a clear answer on Cigna DPPO acceptance (or honestly says they need to verify) AND either books the appointment OR provides a clear next step so the caller is not left hanging",
+    "expected_structured_fields": ["collected_name", "collected_insurance", "caller_satisfied"],
+    "known_edge_cases": ["task is incomplete if caller leaves without either a booking or a clear next step"],
+    "script": [
+      {"turn": 1, "line": "Hi, I want to book an appointment but I need to know first — do you take Cigna DPPO insurance?"},
+      {"turn": 2, "line": "Are you able to check that while I'm on the phone, or do I need to call back?"},
+      {"turn": 3, "line": "My name is Ben Wallace. Can you at least tell me what I should do next if you can't confirm right now?"},
+      {"turn": 4, "line": "Okay, I'll wait for the callback then. Thanks."}
+    ]
+  }
+]
