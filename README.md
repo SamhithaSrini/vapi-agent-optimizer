@@ -25,37 +25,8 @@ cat results/report.md
 
 ## How It Works
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                     OPTIMIZER LOOP                          │
-│                                                             │
-│  Current Prompt                                             │
-│       │                                                     │
-│       ▼                                                     │
-│  1. Run 17 training conversations (LLM caller + LLM agent)  │
-│       │                                                     │
-│       ▼                                                     │
-│  2. Hybrid Judge scores each call                           │
-│       LLM rubric (0.7) + Vapi analysisPlan extraction (0.3) │
-│       │                                                     │
-│       ▼                                                     │
-│  3. Failure Aggregator ranks failure patterns               │
-│       │                                                     │
-│       ▼                                                     │
-│  4. RLAIF Self-Critique: agent reviews its own worst calls  │
-│       │                                                     │
-│       ▼                                                     │
-│  5. Rewriter generates 3 candidate prompts                  │
-│       (temperature sweep: 0.3 / 0.6 / 0.9)                 │
-│       │                                                     │
-│       ▼                                                     │
-│  6. Validate all 3 on held-out test set (7 scenarios)       │
-│       Accept only if holdout score improves by ≥ 0.02       │
-│       │                                                     │
-│       ▼                                                     │
-│  7. Update optimization memory → next iteration             │
-└─────────────────────────────────────────────────────────────┘
-```
+<img width="378" height="459" alt="Screenshot 2026-04-06 at 12 08 38 AM" src="https://github.com/user-attachments/assets/34f7bf1a-5399-4f73-b1a2-75d98b59deb4" />
+
 
 This is **black-box policy optimization over prompt space**: the prompt is the policy, the hybrid judge is the reward function, the rewriter is the proposal distribution, and the holdout set is the generalization test.
 
@@ -83,7 +54,7 @@ This notably improved edge-case handling — the self-critique could articulate 
 
 **Phase 3 — MultiWOZ benchmark calibration**
 
-Before the final run, the judge's dimension weights were validated against 40 real restaurant booking dialogs from MultiWOZ 2.2 (which have ground-truth task success labels). The concern: were the weights measuring task success or rewarding tone?
+Before the final run, the judge's dimension weights were validated against 40 real restaurant booking dialogs from MultiWOZ 2.2 (which have ground-truth task success labels). The concern: were the weights measuring task success or rewarding tone? I wanted to test against a real benchmark with a labelled datasets.
 
 Key finding: `goal_completion` had a +0.514 score gap between successes and failures. `tone_and_empathy` had only +0.048 — a polite agent that fails to book looks nearly the same as one that succeeds.
 
@@ -129,6 +100,9 @@ Changes applied:
 **Initial prompt (deliberately weak):** minimal rules, no escalation path, no edge case handling.
 
 **Final prompt (autonomously optimized):** added emergency/same-day handling, manager escalation path, waitlist offers, empathy framing for upset callers, multi-service accommodation, insurance follow-up process. See `results/final_prompt.txt`.
+
+<img width="612" height="471" alt="Screenshot 2026-04-06 at 12 12 02 AM" src="https://github.com/user-attachments/assets/a5e63987-3c32-44de-b17f-e540379d16fb" />
+
 
 ---
 
