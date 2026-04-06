@@ -64,6 +64,8 @@ Changes applied:
 - Judge rubric annotated: *"Do not let a warm tone inflate goal_completion"*
 - Added 4 harder scenarios (polite-but-incomplete, mid-call intent change, abandoned booking, cost+insurance before commit)
 
+For a full walkthrough of the calibration process, see [docs/judge_calibration.md](docs/judge_calibration.md).
+
 ---
 
 ## Results
